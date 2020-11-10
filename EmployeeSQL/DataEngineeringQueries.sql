@@ -1,6 +1,4 @@
 -- 1. List the following details of each employee: employee number, last name, first name, sex, and salary.
-
--- Perform an INNER JOIN on the two tables
 SELECT employees.emp_no, employees.last_name, employees.first_name, employees.sex, salaries.salary
 FROM employees
 INNER JOIN salaries ON
@@ -17,3 +15,10 @@ SELECT dept_manager.dept_no, departments.dept_name, employees.emp_no, employees.
 FROM employees
 INNER JOIN dept_manager ON dept_manager.emp_no = employees.emp_no
 INNER JOIN departments ON dept_manager.dept_no = departments.dept_no;
+
+-- 4. List the department of each employee with the following information: 
+-- employee number, last name, first name, and department name.
+SELECT dept_emp.emp_no, employees.last_name, employees.first_name, departments.dept_name
+FROM employees
+INNER JOIN dept_emp ON dept_emp.emp_no = employees.emp_no
+INNER JOIN departments ON dept_emp.dept_no = departments.dept_no
