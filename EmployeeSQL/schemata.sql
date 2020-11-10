@@ -34,3 +34,20 @@ CREATE TABLE titles (
 	title VARCHAR(50),
 	PRIMARY KEY(title_id)
 );
+
+
+ALTER TABLE departments ADD PRIMARY KEY(dept_no);
+
+ALTER TABLE dept_emp
+ADD FOREIGN KEY (emp_no) REFERENCES employees(emp_no);
+
+ALTER TABLE dept_emp
+ADD FOREIGN KEY (dept_no) REFERENCES departments(dept_no);
+
+ALTER TABLE dept_manager
+ADD CONSTRAINT FK_ManagerDepartments
+FOREIGN KEY (dept_no) REFERENCES departments(dept_no);
+
+ALTER TABLE dept_manager
+ADD CONSTRAINT FK_ManagerEmployees
+FOREIGN KEY (emp_no) REFERENCES employees(emp_no);
